@@ -13,5 +13,6 @@
 	<!-- lorem text is displayed for the 3 ids -->
 	<!-- <h3>{fb.text}</h3> -->
 	<!-- Each FeedbackItem taken as a prop -->
+	<!-- 'Hello' is displayed 3 times -->
 	<FeedbackItem item={fb} />
 {/each}
