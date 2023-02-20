@@ -21,7 +21,7 @@
 	];
 </script>
 
-<main>
+<main class="container">
 	<!-- Pass top level component data as a prop with FeedbackList -->
 	<!-- feedback={feedback} -->
 	<FeedbackList {feedback} />
