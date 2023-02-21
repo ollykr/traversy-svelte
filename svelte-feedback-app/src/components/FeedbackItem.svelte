@@ -1,12 +1,26 @@
 <script>
+	// Dispatch custom even so deleting is registered in our main App where our data sits
+	import { createEventDispatcher } from "svelte";
 	import Card from "./Card.svelte";
-
 	export let item;
+
+	const dispatch = createEventDispatcher();
+
+	// Testing handle delete
+	// const handleDelete = (itemId) => {
+	// 	console.log(itemId);
+	// };
+
+	// Use Dispatcher
+	const handleDelete = (itemId) => {
+		dispatch("delete-feedback", itemId);
+	};
 </script>
 
-<Card
-	><div class="num-display">{item.rating}</div>
-	<div class="close">X</div>
+<Card>
+	<div class="num-display">{item.rating}</div>
+	<!-- It deletes based on an item ID -->
+	<button class="close" on:click={() => handleDelete(item.id)}>X</button>
 	<p class="text-display">{item.text}</p>
 </Card>
 
