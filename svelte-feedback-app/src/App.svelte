@@ -1,7 +1,7 @@
 <script>
 	import FeedbackList from "./components/FeedbackList.svelte";
 
-	// Your data should be stored in a a top level component
+	// Your data should be stored in a top level component
 	let feedback = [
 		{
 			id: 1,
@@ -20,6 +20,12 @@
 		},
 	];
 
+	// feedback stats to find out an average of all the ratings
+	// #1
+	$: count = feedback.length;
+	// #2 an average count
+	$: average =
+		feedback.reduce((a, { rating }) => a + rating, 0) / feedback.length;
 	const deleteFeedback = (e) => {
 		// we accessing an item id via e.detail
 		// console.log(e.detail);
@@ -31,6 +37,10 @@
 </script>
 
 <main class="container">
+	<!-- to test that the count works -->
+	<h1>Number of reiews: {count}</h1>
+	<!-- to test that the average works -->
+	<h1>An average rating: {average}</h1>
 	<!-- Pass top level component data as a prop with FeedbackList -->
 	<!-- feedback={feedback} -->
 	<!-- Event forwarding delete event from feedbackList component -->
