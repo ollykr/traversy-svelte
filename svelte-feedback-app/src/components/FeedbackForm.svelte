@@ -1,4 +1,6 @@
 <script>
+	// external module uuid to create random ids
+	import { v4 as uuidv4 } from "uuid";
 	import Card from "./Card.svelte";
 	import Button from "./Button.svelte";
 	import RatingSelect from "./RatingSelect.svelte";
@@ -25,11 +27,26 @@
 			btnDisabled = false;
 		}
 	};
+
+	const handleSubmit = () => {
+		if (text.trim().length > min) {
+			// Create an object called newFeedback
+			const newFeedback = {
+				id: uuidv4(),
+				text,
+				// +rating turns string to a number
+				rating: +rating,
+			};
+
+			console.log(newFeedback);
+		}
+	};
 </script>
 
 <Card>
 	<header><h2>How would you rate your service with us?</h2></header>
-	<form action="">
+	<!-- |preventDefault is a modifier -->
+	<form on:submit|preventDefault={handleSubmit} action="">
 		<!-- Rating select -->
 		<RatingSelect on:rating-select={handleSelect} />
 		<div class="input-group">
