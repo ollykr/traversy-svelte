@@ -1,9 +1,13 @@
 <script>
+	import { createEventDispatcher } from "svelte";
 	// 10 radio buttons to rate reviews by defalt
 	let selected = 10;
 
-	const onChange = () => {
-		console.log(1);
+	const dispatch = createEventDispatcher();
+
+	const onChange = (e) => {
+		selected = e.currentTarget.value;
+		dispatch("rating-select", selected);
 	};
 </script>
 

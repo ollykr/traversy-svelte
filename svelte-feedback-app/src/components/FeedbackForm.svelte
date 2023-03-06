@@ -8,6 +8,8 @@
 	let btnDisabled = true;
 	let min = 10;
 	let message;
+	// If you have a custom event , and you pass a value, you can then get that value with e.detail
+	const handleSelect = (e) => (rating = e.detail);
 
 	// Makes disabled button active when typed characters are 10 minimum
 
@@ -29,7 +31,7 @@
 	<header><h2>How would you rate your service with us?</h2></header>
 	<form action="">
 		<!-- Rating select -->
-		<RatingSelect />
+		<RatingSelect on:rating-select={handleSelect} />
 		<div class="input-group">
 			<input
 				type="text"
