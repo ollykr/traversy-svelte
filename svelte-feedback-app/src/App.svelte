@@ -1,4 +1,5 @@
 <script>
+	import FeedbackForm from "./components/FeedbackForm.svelte";
 	import FeedbackList from "./components/FeedbackList.svelte";
 	import FeedbackStats from "./components/FeedbackStats.svelte";
 
@@ -40,6 +41,8 @@
 </script>
 
 <main class="container">
+	<!-- Feedback Form -->
+	<FeedbackForm />
 	<!-- Feedback Stats component -->
 	<FeedbackStats {count} {average} />
 	<!-- to test that the count works -->
