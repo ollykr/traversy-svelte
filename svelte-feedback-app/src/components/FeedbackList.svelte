@@ -38,6 +38,6 @@
 	<!-- Display each item  -->
 	<!-- wrap in a div to apply transiotions like fade out and scale in -->
 	<div in:scale out:fade={{ duration: 500 }}>
-		<FeedbackItem item={fb} on:delete-feedback />
+		<FeedbackItem item={fb} />
 	</div>
 {/each}

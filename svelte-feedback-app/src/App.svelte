@@ -31,16 +31,6 @@
 		const newFeedback = e.detail;
 		feedback = [newFeedback, ...feedback];
 	};
-
-	// Delete review
-	const deleteFeedback = (e) => {
-		// we accessing an item id via e.detail
-		// console.log(e.detail);
-		const itemId = e.detail;
-		// Deleting an item from an UI , not from DB ot something like this
-		// We are filtering out the item id we are deleting
-		feedback = feedback.filter((item) => item.id != itemId);
-	};
 </script>
 
 <main class="container">
@@ -55,6 +45,5 @@
 	<!-- Pass top level component data as a prop with FeedbackList -->
 	<!-- feedback={feedback} -->
 	<!-- Event forwarding delete event from feedbackList component -->
-	<!-- Setting it up to a function deleteFeedback -->
-	<FeedbackList on:delete-feedback={deleteFeedback} />
+	<FeedbackList />
 </main>
