@@ -1,4 +1,6 @@
 <script>
+	// apply nice Svelte transition to reviews list
+	import { fade, scale } from "svelte/transition";
 	import FeedbackItem from "./FeedbackItem.svelte";
 	// Catch a prop
 	// It is gonna be set by {feedback} prop in App.svelte
@@ -14,5 +16,9 @@
 	<!-- <h3>{fb.text}</h3> -->
 	<!-- Each FeedbackItem taken as a prop -->
 	<!-- Catching a dispatch custom event from FeedbackItem component -->
-	<FeedbackItem item={fb} on:delete-feedback />
+	<!-- Display each item  -->
+	<!-- wrap in a div to apply transiotions like fade out and scale in -->
+	<div in:scale out:fade={{ duration: 500 }}>
+		<FeedbackItem item={fb} on:delete-feedback />
+	</div>
 {/each}
