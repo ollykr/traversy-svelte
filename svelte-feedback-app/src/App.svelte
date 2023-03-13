@@ -28,6 +28,11 @@
 	// #2 an average count
 	$: average =
 		feedback.reduce((a, { rating }) => a + rating, 0) / feedback.length;
+	// add a new review
+	const addFeedback = (e) => {
+		const newFeedback = e.detail;
+		feedback = [newFeedback, ...feedback];
+	};
 
 	// Delete review
 	const deleteFeedback = (e) => {
@@ -42,7 +47,7 @@
 
 <main class="container">
 	<!-- Feedback Form -->
-	<FeedbackForm />
+	<FeedbackForm on:add-feedback={addFeedback} />
 	<!-- Feedback Stats component -->
 	<FeedbackStats {count} {average} />
 	<!-- to test that the count works -->
