@@ -2,8 +2,6 @@
 	import FeedbackForm from "./components/FeedbackForm.svelte";
 	import FeedbackList from "./components/FeedbackList.svelte";
 	import FeedbackStats from "./components/FeedbackStats.svelte";
-
-	// Your data should be stored in a top level component
 	let feedback = [
 		{
 			id: 1,

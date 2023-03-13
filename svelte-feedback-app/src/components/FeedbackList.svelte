@@ -1,13 +1,25 @@
 <script>
+	import { onMount, onDestroy } from "svelte";
+	import { FeedbackStore } from "../stores";
 	// apply nice Svelte transition to reviews list
 	import { fade, scale } from "svelte/transition";
 	import FeedbackItem from "./FeedbackItem.svelte";
 	// Catch a prop
 	// It is gonna be set by {feedback} prop in App.svelte
 	// Just in case it was not passed in, we set it to an empty array here
-	export let feedback = [];
+	// export let feedback = [];
 	// Testing that it is working, and values are passed on
 	// console.log(feedback);
+	// Not a prop anymore since we are getting feedback diractly via stores.js
+	let feedback = [];
+	// Subscribe to our store (via subscribe function) to get a data (through a callback which takes 'data')
+	FeedbackStore.subscribe((data) => (feedback = data));
+
+	// Life-cycle method - unsubscribe since it is class-based component
+	// Just to show that we can use onMount but we are not using it for the project
+	onMount(() => {
+		console.log("mounted");
+	});
 </script>
 
 {#each feedback as fb (fb.id)}
