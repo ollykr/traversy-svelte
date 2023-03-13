@@ -56,5 +56,5 @@
 	<!-- feedback={feedback} -->
 	<!-- Event forwarding delete event from feedbackList component -->
 	<!-- Setting it up to a function deleteFeedback -->
-	<FeedbackList {feedback} on:delete-feedback={deleteFeedback} />
+	<FeedbackList on:delete-feedback={deleteFeedback} />
 </main>
