@@ -1,7 +1,12 @@
 <script>
-	// take props
-	export let count;
-	export let average;
+	import { FeedbackStore } from "../stores";
+	// feedback stats
+	// #1
+	$: count = $FeedbackStore.length;
+	// #2 an average count
+	$: average =
+		$FeedbackStore.reduce((a, { rating }) => a + rating, 0) /
+		$FeedbackStore.length;
 </script>
 
 <!-- Display stats -->

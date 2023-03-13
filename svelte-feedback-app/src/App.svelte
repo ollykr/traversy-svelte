@@ -2,42 +2,13 @@
 	import FeedbackForm from "./components/FeedbackForm.svelte";
 	import FeedbackList from "./components/FeedbackList.svelte";
 	import FeedbackStats from "./components/FeedbackStats.svelte";
-	let feedback = [
-		{
-			id: 1,
-			rating: 10,
-			text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus illum officiis quos sapiente necessitatibus itaque tempora deserunt iure fugit velit.",
-		},
-		{
-			id: 2,
-			rating: 9,
-			text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus illum officiis quos sapiente necessitatibus itaque tempora deserunt iure fugit velit.",
-		},
-		{
-			id: 3,
-			rating: 8,
-			text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus illum officiis quos sapiente necessitatibus itaque tempora deserunt iure fugit velit.",
-		},
-	];
-
-	// feedback stats
-	// #1
-	$: count = feedback.length;
-	// #2 an average count
-	$: average =
-		feedback.reduce((a, { rating }) => a + rating, 0) / feedback.length;
-	// add a new review
-	const addFeedback = (e) => {
-		const newFeedback = e.detail;
-		feedback = [newFeedback, ...feedback];
-	};
 </script>
 
 <main class="container">
 	<!-- Feedback Form -->
-	<FeedbackForm on:add-feedback={addFeedback} />
+	<FeedbackForm />
 	<!-- Feedback Stats component -->
-	<FeedbackStats {count} {average} />
+	<FeedbackStats />
 	<!-- to test that the count works -->
 	<!-- <h1>Number of reiews: {count}</h1> -->
 	<!-- to test that the average works -->
